@@ -21,20 +21,19 @@ var chat_message_input = document.querySelector('#chat-message-input')
 var chat_message_submit = document.querySelector('#chat-message-submit')
 
 chat_message_input.focus()
-chat_message_input.onkeyup = function(e){
-    if(e.keycode === 13){
+chat_message_input.addEventListener('keypress',function(e){
+    if(e.key === 'Enter'){
         chat_message_submit.click()
-        alert('woee')
+        alert('worked')
     }
-};
+})
 
 chat_message_submit.onclick = function(e){
-    console.log('workeddd')
     const message = chat_message_input.value;
     chatSocket.send(JSON.stringify({
         'message':message
     }));
-
+    console.log(message)
     chat_message_input.value = ''
 };
 
