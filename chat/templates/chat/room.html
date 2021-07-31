@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Chat Room {% endblock title %}
+
+{% block content %}
+    {% comment %} <textarea id="chat-log" cols="100" rows="20"></textarea><br> {% endcomment %}
+    <div id="chat-log" style="border:1px solid black; width:500px; height: 500px;"></div>
+    <input type="text" class="form-control" id="chat-message-input"><br>
+    <input type="submit" class="btn btn-primary" id="chat-message-submit" value="submit"><br>
+    {{room_name|json_script:"room-name"}}
+
+    <script src="{% static 'chat/room.js' %}"></script>
+{% endblock content %}

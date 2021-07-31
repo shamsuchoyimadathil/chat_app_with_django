@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Rooms {% endblock title %}
+
+{% block content %}
+
+    <label> Enter the chat room name: </label><br>
+    <input type="text" id="room-name-input" class="form-control" size="100" ><br>
+    <input type="submit" id="room-name-submit" value="Enter" class="btn btn-outline-success"> 
+
+    <script src="{% static 'chat/index.js' %}"></script>
+{% endblock content %}
+
+
