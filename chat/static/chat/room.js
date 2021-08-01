@@ -10,7 +10,8 @@ const chatSocket = new WebSocket(
 
 chatSocket.onmessage = function(e){
     const data = JSON.parse(e.data);
-    document.querySelector('#chat-log').value += (data.message + "\n")
+    /* fix: you tried to change the value of a div, you need to change it's innerHTL */
+    document.querySelector('#chat-log').innerHTML += (data.message) + '<br>'
 }
 
 chatSocket.onclose = function(e){
