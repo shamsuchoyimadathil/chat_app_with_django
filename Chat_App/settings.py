@@ -132,12 +132,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Channels
+# fix: if you don't care about redis: https://stackoverflow.com/questions/63114067/django-channel-redis-integration-error-aioredis-errors-replyerror-err-unkno
 ASGI_APPLICATION = 'Chat_App.asgi.application'
 CHANNEL_LAYERS = {
+    #'default':{
+    #    'BACKEND':'channels_redis.core.RedisChannelLayer',
+    #    'CONFIG':{
+    #        "hosts":[('127.0.0.1', 6379)]
+    #    },
+    #},
     'default':{
-        'BACKEND':'channels_redis.core.RedisChannelLayer',
-        'CONFIG':{
-            "hosts":[('127.0.0.1', 6379)]
-        },
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
